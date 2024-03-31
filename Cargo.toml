@@ -10,6 +10,21 @@ authors = ["Jayyy"]
 clap = { version = "4.0.26", features = ["derive"] }
 tracing = "0.1.0"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+thiserror = "1.0.57"
+tokio = { version = "1.36.0", features = ["full"] }
+futures = "0.3.26"
+futures-util = "0.3.25"
+rand = "0.8.5"
+
+# eth
+secp256k1 = { version = "0.27.0", default-features = false, features = [
+    "global-context",
+    "rand-std",
+    "recovery",
+] }
+alloy-rlp = { version = "0.3", features = ["derive", "arrayvec"] }
 
 # Rust-Eth 
 reth-primitives = { git = "https://github.com/paradigmxyz/reth"}
+reth-ecies = { git = "https://github.com/paradigmxyz/reth" }
+reth-eth-wire = { git = "https://github.com/paradigmxyz/reth"}
