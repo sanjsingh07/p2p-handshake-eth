@@ -1,9 +1,9 @@
 use crate::{
-    common::error::{P2PError, P2PHandshakeErr},
-    p2p::{
+    common::{
         command::{CmdArgs, Commands},
-        eth::NodeConfig,
+        error::{P2PError, P2PHandshakeErr},
     },
+    p2p::eth::NodeConfig,
 };
 use futures_util::TryFutureExt;
 use std::net::IpAddr;

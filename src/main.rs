@@ -1,7 +1,7 @@
 use clap::Parser;
 use p2p_handshake_eth::{
-    common::error::P2PError,
-    p2p::{command::CmdArgs, handshake::handshake},
+    common::{command::CmdArgs, error::P2PError},
+    p2p::handshake::handshake,
 };
 use tracing::info;
 use tracing_subscriber::{filter::LevelFilter, EnvFilter};

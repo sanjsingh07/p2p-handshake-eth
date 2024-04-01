@@ -6,6 +6,10 @@ authors = ["Jayyy"]
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[test]]
+name = "handshake_test"
+path = "tests/handshake_test.rs"
+
 [dependencies]
 clap = { version = "4.0.26", features = ["derive"] }
 tracing = "0.1.0"
