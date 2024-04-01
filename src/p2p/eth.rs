@@ -74,7 +74,7 @@ impl NodeConfig {
         let mut raw_hello_bytes = BytesMut::new();
         hello_msg.encode(&mut raw_hello_bytes);
         // Send our hello msg
-        debug!("Sending Hello: {:?}", hello_msg);
+        debug!(?hello_msg, "Sending Hello:");
         stream.send(raw_hello_bytes.into()).await?;
 
         // Receive the msg from the peer
@@ -107,7 +107,7 @@ impl NodeConfig {
                 Ok(hello)
             }
             Ok(P2PMessage::Disconnect(reason)) => {
-                debug!("Disconnected by peer during handshake: {}", reason);
+                debug!(?reason, "Disconnected by peer during handshake:");
                 Err(P2PStreamError::HandshakeError(
                     P2PHandshakeError::Disconnected(reason),
                 ))
@@ -121,7 +121,7 @@ impl NodeConfig {
                 Err(P2PStreamError::HandshakeError(err.into()))
             }
             Ok(msg) => {
-                debug!("expected hello message but received: {:?}", msg);
+                debug!(?msg, "expected hello message but received:");
                 Err(P2PStreamError::HandshakeError(
                     P2PHandshakeError::NonHelloMessageInHandshake,
                 ))

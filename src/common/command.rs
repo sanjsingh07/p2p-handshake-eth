@@ -41,7 +41,7 @@ impl CmdArgs {
                         peer: node,
                     };
                     tokio::spawn(async move {
-                        eth_handshake.handshake().await.map_err(move |err| {
+                        eth_handshake.handshake().await.map_err(|err| {
                             P2PError::P2PHandshakeError(P2PHandshakeErr::new(
                                 err,
                                 node.address.clone().to_string(),
