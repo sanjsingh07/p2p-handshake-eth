@@ -1,8 +1,5 @@
 use clap::Parser;
-use p2p_handshake_eth::{
-    common::{command::CmdArgs, error::P2PError},
-    p2p::handshake::handshake,
-};
+use p2p_handshake_eth::common::{command::CmdArgs, error::P2PError};
 use tracing::info;
 use tracing_subscriber::{filter::LevelFilter, EnvFilter};
 
@@ -18,7 +15,7 @@ async fn main() -> Result<(), P2PError> {
 
     info!("loaded cmd args: {:?}", &cmd_args);
 
-    handshake(cmd_args).await?;
+    cmd_args.handshake().await?;
 
     Ok(())
 }

@@ -1,7 +1,4 @@
-use p2p_handshake_eth::{
-    common::command::{CmdArgs, Commands, HANDSHAKE_TIMEOUT},
-    p2p::handshake::handshake,
-};
+use p2p_handshake_eth::common::command::{CmdArgs, Commands, HANDSHAKE_TIMEOUT};
 use reth_primitives::NodeRecord;
 use std::str::FromStr;
 // use reth_primitives::holesky_nodes; // incase we don't want to bother mainnet nodes.
@@ -38,5 +35,5 @@ async fn handshake_test() {
         timeout: HANDSHAKE_TIMEOUT,
     };
 
-    let _res = handshake(cmd_args).await;
+    let _res = cmd_args.handshake().await;
 }

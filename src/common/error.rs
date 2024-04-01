@@ -7,7 +7,7 @@ use tokio::task::JoinError;
 pub enum P2PError {
     #[error("P2P handshake error: {0}")]
     P2PHandshakeError(P2PHandshakeErr),
-    #[error("ECIES error make a retry again: {0}")]
+    #[error("ECIES error retry again: {0}")]
     ECIESError(#[from] ECIESError),
     #[error("IO error: {0}")]
     IOError(#[from] std::io::Error),
